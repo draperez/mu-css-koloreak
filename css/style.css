@@ -1,0 +1,42 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+h1, p {
+    padding: 1em;
+}
+.bg-primary {
+    background-color: var(--base-color);
+    color: var(--base-text-color);
+}
+.bg-secondary {
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+}
+.bg-primary-180 {
+    background-color: var(--base-color-180);
+    color: var(--base-180-text-color);
+}
+.bg-secondary-180 {
+    background-color: var(--secondary-color-180);
+    color: var(--secondary-180-text-color);
+}
+
+#theme-pickers {
+    display: flex;
+    gap: 1em;
+    padding: 1em;
+    justify-content: center;
+}
+
+#select-theme {
+    background-color: var(--base-color);
+    color: var(--base-text-color);
+}
+
+
+#select-secondary-diff {
+    accent-color: var(--secondary-color);
+}

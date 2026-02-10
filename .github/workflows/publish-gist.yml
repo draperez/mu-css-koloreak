@@ -1,0 +1,32 @@
+name: Publish mu-koloreak.css to Gist
+
+on:
+  push:
+    paths:
+      - 'css/mu-koloreak.css'
+  workflow_dispatch:
+
+jobs:
+  publish-gist:
+    name: Publish or update Gist
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create or update Gist
+        uses: peter-evans/create-or-update-gist@v4
+        with:
+          # If you want to update an existing gist, set MU_KOLOREAK_GIST_ID in repository secrets.
+          gist_id: ${{ secrets.MU_KOLOREAK_GIST_ID }}
+          files: |
+            mu-koloreak.css: css/mu-koloreak.css
+          description: MU Koloreak CSS (published from repository)
+          public: true
+          token: ${{ secrets.GIST_TOKEN }}
+
+      - name: Output gist URL
+        if: success()
+        run: |
+          echo "Gist published/updated. See the action log for the returned Gist URL." 

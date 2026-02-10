@@ -1,0 +1,87 @@
+/* Koloreen definizioa */
+:root {
+    --kolorea-pro:          oklch(0.5535 0.2231 22.36);         /* pantone-199 */
+    --kolorea-mu:           oklch(0.6561 0.111589 201.4354);    /* pantone-7467 */
+    --kolorea-mu-secondary: oklch(0.3682 0.0636 209.75);
+    --kolorea-mgep:         oklch(0.6528 0.1589 45.82);         /* #dc6b2e; */
+    --kolorea-huezi:        oklch(0.4657 0.1878 2.7);           /* #A50050; */
+    --kolorea-eteo:         oklch(0.5642 0.1283 142.12);        /* #44883E; */
+    --kolorea-asfabrik:     oklch(0.6439 0.2424 30.49);         /* #ff2e17; */
+    --kolorea-bbf:          oklch(0.5806 0.1965 28.74);         /* #d6382d; */
+    --kolorea-cta:          oklch(0.8482 0.1717 85.79);         /* pantone-123 */
+    --kolorea-laranja:      oklch(0.6487 0.1622 48.66);         /* pantone-7578 */
+    --kolorea-magenta:      oklch(0.4628 0.187 1.49);           /* pantone-220 */
+    --kolorea-berdea:       oklch(0.5961 0.157 144.07);         /* pantone-7741  */
+    --kolorea-urdina:       oklch(0.6108 0.1439 241.61);
+    --kolorea-beltza:       oklch(0 0 0);                       /* black */
+    --kolorea-iluna:        oklch(0 0 0);                       /* black */
+    --kolorea-grisa:        oklch(0.5889 0.0419 248.54);
+    --kolorea-argia:        oklch(0.9702 0 0);                  /* whitesmoke */
+    --kolorea-zuria:        oklch(1 0 0);                       /* white */
+}
+
+/* Koloreen aldagai dinamikoak */
+:root {
+    --secondary-color-diff: attr(data-secondary-diff type(<number>), 75);
+    --base-color: var(--kolorea-mu);
+    --base-color-180: oklch(
+        from var(--base-color)
+        l c
+        calc(h + 180)
+    );
+    --secondary-color: oklch(
+        from var(--base-color)
+        l c
+        calc(h + var(--secondary-color-diff))
+    );
+    --secondary-color-180: oklch(
+        from var(--secondary-color)
+        l c 
+        calc(h + 180)
+    );
+
+    --white-black-threshold: 0.80;
+    --base-text-color: oklch(
+        from var(--base-color)
+        max(0, min(1, (var(--white-black-threshold) - l) * 10))
+        0
+        0
+    );
+    --secondary-text-color: oklch(
+        from var(--secondary-color)
+        max(0, min(1, (var(--white-black-threshold) - l) * 10))
+        0
+        0
+    );
+    --base-180-text-color: oklch(
+        from var(--base-color-180)
+        max(0, min(1, (var(--white-black-threshold) - l) * 10))
+        0
+        0
+    );
+    --secondary-180-text-color: oklch(
+        from var(--secondary-color-180)
+        max(0, min(1, (var(--white-black-threshold) - l) * 10))
+        0
+        0
+    );
+
+    /* Aldatu "kolorea" aukera bakoitzeko */
+    &[data-theme="pro"] {--base-color: var(--kolorea-pro);}
+    &[data-theme="mu"] {--base-color: var(--kolorea-mu);}
+    &[data-theme="mu-secondary"] {--base-color: var(--kolorea-mu-secondary);}
+    &[data-theme="mgep"] {--base-color: var(--kolorea-mgep);}
+    &[data-theme="huezi"] {--base-color: var(--kolorea-huezi);}
+    &[data-theme="eteo"] {--base-color: var(--kolorea-eteo);}
+    &[data-theme="asfabrik"] {--base-color: var(--kolorea-asfabrik);}
+    &[data-theme="bbf"] {--base-color: var(--kolorea-bbf);}
+    &[data-theme="cta"] {--base-color: var(--kolorea-cta);}
+    &[data-theme="laranja"] {--base-color: var(--kolorea-laranja);}
+    &[data-theme="magenta"] {--base-color: var(--kolorea-magenta);}
+    &[data-theme="berdea"] {--base-color: var(--kolorea-berdea);}
+    &[data-theme="urdina"] {--base-color: var(--kolorea-urdina);}
+    &[data-theme="beltza"] {--base-color: var(--kolorea-beltza);}
+    &[data-theme="iluna"] {--base-color: var(--kolorea-iluna);}
+    &[data-theme="grisa"] {--base-color: var(--kolorea-grisa);}
+    &[data-theme="zuria"] {--base-color: var(--kolorea-zuria);}
+}
