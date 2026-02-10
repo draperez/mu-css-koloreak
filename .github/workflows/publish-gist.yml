@@ -16,15 +16,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create or update Gist
-        uses: peter-evans/create-or-update-gist@v4
+        uses: exuanbo/actions-deploy-gist@v1
         with:
-          # If you want to update an existing gist, set MU_KOLOREAK_GIST_ID in repository secrets.
-          gist_id: ${{ secrets.MU_KOLOREAK_GIST_ID }}
-          files: |
-            mu-koloreak.css: css/mu-koloreak.css
-          description: MU Koloreak CSS (published from repository)
-          public: true
           token: ${{ secrets.GIST_TOKEN }}
+          gist_id: ${{ secrets.MU_KOLOREAK_GIST_ID }}
+          gist_file_name: mu-koloreak.css
+          file_path: css/mu-koloreak.css
+          file_type: text
 
       - name: Output gist URL
         if: success()
