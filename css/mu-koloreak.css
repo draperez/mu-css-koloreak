@@ -85,3 +85,9 @@
     &[data-theme="grisa"] {--base-color: var(--kolorea-grisa);}
     &[data-theme="zuria"] {--base-color: var(--kolorea-zuria);}
 }
+
+@supports not (x: attr(x type(<number>))) {
+    :root {
+        --secondary-color-diff: 75;
+    }
+}

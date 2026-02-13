@@ -8,5 +8,5 @@ selectTheme.addEventListener('change', function() {
 
 selectSecondaryDiff.addEventListener('input', function() {
     root.setAttribute('data-secondary-diff', this.value);
-    document.querySelector('#secondary-diff-value').textContent = String(this.value).padStart(3, '0');
+    document.querySelector('#secondary-diff-value').textContent = this.value;
 });

@@ -24,6 +24,8 @@ Oharrak
 -------
 - Aldagaien eta `oklch()`/`from` relatiboen erabilera arte adituagoak dira; ezaugarri batzuk nabigatzailearen bertsioaren arabera kontrastatu beharko dira.
 
+- Firefoxek oraindik ez du ondo kudeatzen `attr(x type(<number>)` (2026-02-13 datan behintzat), beraz, `@supports` erabiliz `--secondary-color-diff` balio lehenetsia ezarri da eta ez da dinamikoa izango firefox nabigatzailean hori konpondu arte.
+
 Lizentzia
 --------
 Proiektua MIT lizentziarekin dago estalita — bere testua `LICENSE` fitxategian dago.
